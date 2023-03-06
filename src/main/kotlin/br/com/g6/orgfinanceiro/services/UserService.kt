@@ -31,8 +31,7 @@ class UserService {
         var erroEmail: String = ""
         try {
             if(userRepository.findByEmail(user.email) == null){
-                var body: String = "Olá ${user.name}! Seja bem-vindo(a) ao Meu Boleto Pago.\n" +
-                        "O controle das suas finanças na palma da sua mão."
+                var body: String = emailService.textoBoasVindas(user.name)
                 emailService.sendEmail(
                     user.email,
                     "Bem-vindo(a) ao Meu Boleto Pago!",
@@ -77,8 +76,7 @@ class UserService {
         userRepository.save(user)
         emailService.sendEmail(toEMail = user.email,
                                 subject = "Recuperação de senha",
-                                body = "Olá, ${user.name}\n" +
-                                        "Seu token de recuperação de senha é: ${user.recoveryToken}")
+                                body = emailService.textoRecuperacao(user.name, user.recoveryToken))
     }
     @Throws(Exception::class)
     fun changePassword(newPassword: NewPassword): Users? {
