@@ -43,9 +43,7 @@ class CronJobConfig() {
     private val currentUserService: CurrentUserService? = null
 
     //second, minute, hour, day, month, weekday
-    //@Scheduled(cron = "* * 8 * * ?")
-    // AGENDAMENTO
-    @Scheduled(cron = "0/30 * * * * ?")
+    @Scheduled(cron = "0 0 8 * * ?")
     fun sendMail() {
         expenseDueDate() // Conta a vencer
         overdueAccount() // Conta Vencida

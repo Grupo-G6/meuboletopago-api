@@ -61,16 +61,19 @@ class MovementController {
     }
 
     @PostMapping()
-    fun post(@Valid @RequestBody createMovement: Movement): Movement {
+    fun post(@Valid @RequestBody dto : MovementDTO): Movement {
+        val createMovement = dto.toEntity()
         createMovement.user = currentUserService.getCurrentUser()
         return repository.save(createMovement)
     }
 
     @PutMapping("/{idMovement}")
-    fun put(@PathVariable("idMovement") idMovement: Long,@Valid @RequestBody newMovement: Movement):Movement {
+    fun put(@PathVariable("idMovement") idMovement: Long,@Valid @RequestBody dto: MovementDTO):Movement {
         val updateMovement = repository.findById(idMovement).orElseThrow {EntityNotFoundException()}
         if(updateMovement.user != currentUserService.getCurrentUser())
             throw IllegalArgumentException("O lançamento não pertence a esse usuário")
+
+        val newMovement = dto.toEntity()
 
         updateMovement?.apply {
             this.descriptionMovement = newMovement.descriptionMovement
