@@ -28,23 +28,23 @@ class SpringMailService {
     fun textoBoasVindas(nome: String) : String {
         val texto = "Olá, $nome,\n" +
                 "\n" +
-                "Bem-vinde ao Meu boleto pago: o app que vai te ajudar a colocar seus boletos em dia e fazer mais economia. \n" +
+                "Bem-vinde ao Meu boleto pago: o app que vai te ajudar a colocar seus boletos em dia e fazer mais economia. \uD83D\uDCB0\uD83E\uDD70\uD83D\uDC9A\n" +
                 "\n" +
                 "Com o app você pode:\n" +
                 "\n" +
                 "- cadastrar despesas: coloque uma descrição curta e sugestiva, o valor e  a data de vencimento. Nós te lembraremos 24 horas antes, por email, para te garantir a tranquilidade de um boleto pago.\n" +
-                "- cadastrar receitas: aqui você coloca seus rendimentos correntes, a data que eles caem na sua mão (conta, porquinho, o que for). \n" +
+                "-cadastrar receitas: aqui você coloca seus rendimentos correntes, a data que eles caem na sua mão (conta, porquinho, o que for). \n" +
                 "\n" +
                 "Qual a importância disso tudo? \n" +
                 "\n" +
                 "Com as anotações em dia, você consegue ter uma previsibilidade do saldo mensal, planejar melhor seus gastos e não fazer dívidas.\n" +
-                " Dá  até pra pensar naquela viagem de fim de ano. \n" +
+                " Dá  até pra pensar naquela viagem de fim de ano. \uD83C\uDFD6️\n" +
                 "\n" +
                 "Então, vamos começar? \n" +
                 "\n" +
                 "Registrar a primeira movimentação é o passo inicial para um futuro próspero, com boletos em dia e organização financeira.\n" +
                 "\n" +
-                "Boa sorte, \n" +
+                "Boa sorte, \uD83C\uDF40\n" +
                 "\n" +
                 "Meu Boleto Pago"
         return texto
