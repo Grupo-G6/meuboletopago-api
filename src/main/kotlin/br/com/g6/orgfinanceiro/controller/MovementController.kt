@@ -33,6 +33,14 @@ class MovementController {
         var filterMovement = FilterMovementSpecification(dto)
         return repository.findAll(filterMovement)
     }
+    @PostMapping("/filteruser")
+    fun getMovementByUser(): MutableList<Movement> {
+        val movement = MovementDTO()
+        movement.idUser = currentUserService.getCurrentUser()?.id
+        var filterMovement = FilterMovementSpecification(movement)
+        return repository.findAll(filterMovement)
+    }
+
     @GetMapping()
     fun getAll(): MutableList<Movement> {
         return repository.findAll()
